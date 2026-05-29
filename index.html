@@ -198,7 +198,7 @@
                             <!-- Sec -->
                             <div class="flex flex-col items-center">
                                 <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-accent-500 to-accent-600 shadow-[0_10px_40px_rgba(219,20,50,0.2)] rounded-3xl flex items-center justify-center font-headline text-3xl md:text-4xl font-black text-white"
-                                    id="countdown-sec">30</div>
+                                    id="countdown-sec">00</div>
                                 <span class="text-[10px] font-bold text-accent-500 mt-2 uppercase">Giây</span>
                             </div>
                         </div>
@@ -476,7 +476,7 @@
                     <!-- Large Featured Card -->
                     <div
                         class="col-span-1 md:col-span-2 lg:col-span-2 row-span-2 rounded-[2.5rem] overflow-hidden relative group">
-                        <img src="./Vách Ngăn Cách Âm.jpg" alt="Focus"
+                        <img src="./vach-ngan-cach-am.jpg" alt="Focus"
                             class="absolute inset-0 w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000" />
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent">
                         </div>
@@ -589,7 +589,7 @@
 
     <script>
         const targetDate = new Date("2026-06-30T23:59:59").getTime();
-        setInterval(() => {
+        function updateCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
 
@@ -614,7 +614,9 @@
             if (minEl) minEl.innerText = minutes.toString().padStart(2, '0');
             const secEl = document.getElementById('countdown-sec');
             if (secEl) secEl.innerText = seconds.toString().padStart(2, '0');
-        }, 1000);
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
     </script>
 </body>
 
